@@ -1,56 +1,4 @@
-const WORDS_POOL = [
-    "FLAME",
-    "SHARK",
-    "BIRDS",
-    "FLASH",
-    "TREES",
-    "CLOUD",
-    "WATER",
-    "SLIME",
-    "TRAIN",
-    "THERE",
-    "WORDS",
-    "DAISY",
-    "APRIL",
-    "CRANE",
-    "KITTY",
-    "SHINE",
-    "FRESH",
-    "START",
-    "BOXES",
-    "MRAOW",
-    "GRACE",
-    "TERRY",
-    "CREWS",
-    "ATLUS",
-    "ATLAS",
-    "DOLLS",
-    "MARKS",
-    "PAWNS",
-    "JUMPY",
-    "RACER",
-    "HAMMY",
-    "LASER",
-    "BREAK",
-    "MAINS",
-    "EXIST",
-    "KINDA",
-    "SLACK",
-    "MAKER",
-    "FURRY",
-    "JERKY",
-    "BLOAT",
-    "RUSTY",
-    "MUSTY",
-    "DUSTY",
-    "DEATH",
-    "HELLO",
-    "CRATE",
-    "WORLD",
-    "FLASH",
-    "DRIVE",
-    "MEMES"
-];
+let WORDS_POOL = [];
 
 let ANSWER = "";
 const WORD_LENGTH = 5;
@@ -81,6 +29,8 @@ function initBoard() {
 }
 
 function resetGame() {
+    if (WORDS_POOL.length === 0) return;
+
     const randomIndex = Math.floor(Math.random() * WORDS_POOL.length);
     ANSWER = WORDS_POOL[randomIndex];
 
@@ -195,4 +145,20 @@ document.getElementById("keyboard").addEventListener("click", (e) => {
     }
 });
 
-resetGame();
+async function loadWords() {
+    try {
+        const response = await fetch("words.txt");
+        if (!response.ok) throw new Error("Could not load words.txt");
+        WORDS_POOL = (await response.text())
+            .split(/\r?\n/)
+            .map(word => word.trim().toUpperCase())
+            .filter(word => word.length === WORD_LENGTH);
+    } catch (error) {
+        messageDisplay.textContent = "could not load words.txt";
+        return;
+    }
+
+    resetGame();
+}
+
+loadWords();
