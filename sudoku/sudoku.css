@@ -1,0 +1,91 @@
+:root {
+  --bg-color: #f0f2f5;
+  --board-border: #333;
+  --cell-border: #ccc;
+  --initial-bg: #e9ecef;
+  --correct-color: #2e7d32;
+  --wrong-color: #c62828;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+#sudoku-container {
+  display: grid;
+  grid-template-columns: repeat(9, 50px);
+  grid-template-rows: repeat(9, 50px);
+  border: 3px solid var(--board-border);
+  background-color: white;
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid var(--cell-border);
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* Distinct 3x3 box borders */
+.cell:nth-child(3n) {
+  border-right: 3px solid var(--board-border);
+}
+.cell:nth-child(9n) {
+  border-right: 1px solid var(--cell-border);
+} /* Reset outer right boundary */
+#sudoku-container > .cell:nth-child(n + 19):nth-child(-n + 27),
+#sudoku-container > .cell:nth-child(n + 46):nth-child(-n + 54) {
+  border-bottom: 3px solid var(--board-border);
+}
+
+.initial {
+  background-color: var(--initial-bg);
+  font-weight: bold;
+  color: #333;
+}
+.correct {
+  color: var(--correct-color);
+  font-weight: bold;
+}
+.wrong {
+  color: var(--wrong-color);
+  font-weight: bold;
+}
+
+.controls {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #58a9ff;
+  color: white;
+  border: none;
+}
+button:hover {
+  background-color: #92b4ff;
+}
+#new-btn {
+  background-color: #53cc6f;
+}
+#new-btn:hover {
+  background-color: #218838;
+}
