@@ -1,0 +1,57 @@
+body {
+    font-family: 'Hi Melody', sans-serif;
+    background-color: #28284b;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding-top: 50px;
+}
+
+.leaderboard-container {
+    width: 400px;
+    background: #42427b;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 400px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #431b86;
+    color: white;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, button {
+    padding: 10px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #6128a7;
+    color: #ddd;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #642188;
+}
