@@ -44,6 +44,7 @@ let currentUser = null;
 const games = {
   reaction: { title: "reaction time", label: "Time", unit: "milliseconds", direction: "asc", help: "fastest time wins" },
   sudoku: { title: "sudoku", label: "Time", unit: "seconds", direction: "asc", help: "fastest solve wins" },
+  minesweeper: { title: "minesweeper", label: "Time", unit: "seconds", direction: "asc", help: "fastest clear wins" },
   snake: { title: "snake", label: "Score", unit: "points", direction: "desc", help: "most points wins" },
   stack: { title: "stack", label: "Score", unit: "points", direction: "desc", help: "most points wins" },
   word: { title: "word", label: "Score", unit: "points", direction: "desc", help: "most points wins" },

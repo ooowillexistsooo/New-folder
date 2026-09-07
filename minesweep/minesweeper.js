@@ -1,3 +1,5 @@
+import { submitScore } from "../leaderboard/submit-score.js";
+
 const width = 10;
 const height = 10;
 const mineCount = 15;
@@ -6,7 +8,26 @@ const statusElement = document.getElementById('status');
 
 let board = [];
 let isGameOver = false;
+let gameStartedAt = null;
+let timerId = null;
 let whyAreYouLookingAtMyCode = "but why tho";
+
+const timerElement = document.createElement("span");
+timerElement.id = "timer";
+timerElement.textContent = "time: 0s";
+statusElement.insertAdjacentElement("afterend", timerElement);
+
+function updateTimer() {
+    if (gameStartedAt === null || isGameOver) return;
+    const elapsedSeconds = Math.floor((performance.now() - gameStartedAt) / 1000);
+    timerElement.textContent = `time: ${elapsedSeconds}s`;
+}
+
+function startTimer() {
+    if (gameStartedAt !== null) return;
+    gameStartedAt = performance.now();
+    timerId = setInterval(updateTimer, 250);
+}
 
 function createBoard() {
     const totalCells = width * height;
@@ -39,6 +60,8 @@ function createBoard() {
 
 function clickCell(cell) {
     if (isGameOver || cell.revealed || cell.element.textContent === '🚩') return;
+
+    startTimer();
 
     if (cell.isMine) {
         gameOver(false);
@@ -96,8 +119,14 @@ function flagCell(cell) {
 }
 
 function gameOver(won) {
+    clearInterval(timerId);
+    updateTimer();
     isGameOver = true;
     statusElement.textContent = won ? 'yippe. you won. go touch grass tryhard' : 'ha you lose *explodes cutely*';
+    if (won) {
+        const elapsedSeconds = Math.max(1, Math.ceil((performance.now() - gameStartedAt) / 1000));
+        submitScore("minesweeper", elapsedSeconds);
+    }
     board.forEach(cell => {
         if (cell.isMine) {
             cell.element.classList.add('mine');

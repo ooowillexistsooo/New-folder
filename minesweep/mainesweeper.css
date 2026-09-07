@@ -18,6 +18,12 @@ h1 {
     font-weight: bold;
 }
 
+#timer {
+    margin-bottom: 15px;
+    color: #3f8551;
+    font-weight: bold;
+}
+
 #board {
     display: grid;
     grid-template-columns: repeat(10, 30px);
