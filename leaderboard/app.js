@@ -1,4 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { firebaseConfig } from "./firebase-config.js";
 import {
   getFirestore,
   collection,
@@ -13,16 +14,6 @@ import {
   signUpWithEmail,
   signOutUser,
 } from "./submit-score.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyA6UVO1FE3OSExrk4BuIe5fuTUqQK6uyrA",
-  authDomain: "wasabi-b3f9c.firebaseapp.com",
-  projectId: "wasabi-b3f9c",
-  storageBucket: "wasabi-b3f9c.firebasestorage.app",
-  messagingSenderId: "123829633285",
-  appId: "1:123829633285:web:9e530c536d3ab9f686776c",
-  measurementId: "G-0JQ96WJL80",
-};
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);

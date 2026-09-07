@@ -1,4 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { firebaseConfig } from "./firebase-config.js";
 import { addDoc, collection, getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import {
   createUserWithEmailAndPassword,
@@ -8,15 +9,6 @@ import {
   signOut,
   updateProfile,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyA6UVO1FE3OSExrk4BuIe5fuTUqQK6uyrA",
-  authDomain: "wasabi-b3f9c.firebaseapp.com",
-  projectId: "wasabi-b3f9c",
-  storageBucket: "wasabi-b3f9c.firebasestorage.app",
-  messagingSenderId: "123829633285",
-  appId: "1:123829633285:web:9e530c536d3ab9f686776c",
-};
 
 const app = initializeApp(firebaseConfig, "score-submitter");
 const db = getFirestore(app);
