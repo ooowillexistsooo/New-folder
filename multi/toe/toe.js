@@ -1,3 +1,5 @@
+import { submitScore } from "../../leaderboard/submit-score.js";
+
 const cells = document.querySelectorAll(".cell");
 const statusText = document.querySelector("#statusText");
 const restartBtn = document.querySelector("#restartBtn");
@@ -44,9 +46,11 @@ function checkWinner() {
     if (roundWon) {
         statusText.textContent = `${currentPlayer} won`;
         running = false;
+        submitScore("toe", 1);
     } else if (!options.includes("")) {
         statusText.textContent = `draw`;
         running = false;
+        submitScore("toe", 0);
     } else {
         currentPlayer = (currentPlayer === "X") ? "O" : "X";
         statusText.textContent = `${currentPlayer}'s turn`;

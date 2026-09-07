@@ -1,5 +1,8 @@
+import { submitScore } from "../leaderboard/submit-score.js";
+
 let solutionBoard = [];
 let initialBoard = [];
+let gameStartedAt = 0;
 const container = document.getElementById("sudoku-container");
 
 // --- SUDOKU ENGINE (Backtracking & Generation) ---
@@ -121,12 +124,17 @@ function checkPuzzle() {
     }
   });
 
-  if (isPerfect) alert("🎉 Congratulations! You solved the puzzle!");
+  if (isPerfect) {
+    const elapsedSeconds = Math.round((performance.now() - gameStartedAt) / 1000);
+    submitScore("sudoku", elapsedSeconds);
+    alert("🎉 Congratulations! You solved the puzzle!");
+  }
 }
 
 function startNewGame() {
   generateSudoku();
   createGrid();
+  gameStartedAt = performance.now();
 }
 
 // Attach event listeners

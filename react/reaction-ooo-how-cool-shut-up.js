@@ -1,3 +1,5 @@
+import { submitScore } from "../leaderboard/submit-score.js";
+
 const box =document.getElementById('game-box');
 const title =document.getElementById('title');
 const instructionText =document.getElementById('instructionText');
@@ -32,6 +34,7 @@ box.addEventListener('click', () => {
         box.style.backgroundColor = '#4a90e2';
         title.textContent = `${elapsed} ms`;
         instructionText.textContent = 'your parents must be proud of your singular accomplishment, being born.';
+        submitScore("reaction", elapsed);
     }
 });
 

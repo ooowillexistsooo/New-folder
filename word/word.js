@@ -1,3 +1,5 @@
+import { submitScore } from "../leaderboard/submit-score.js";
+
 let WORDS_POOL = [];
 
 let ANSWER = "";
@@ -108,6 +110,7 @@ function submitGuess() {
         messageDisplay.textContent = "splendid";
         gameOver = true;
         resetButton.style.display = "block";
+        submitScore("word", MAX_ATTEMPTS - currentRow);
         return;
     }
 

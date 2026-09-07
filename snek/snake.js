@@ -1,3 +1,5 @@
+import { submitScore } from "../leaderboard/submit-score.js";
+
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const scoreElement = document.getElementById("score");
@@ -101,6 +103,7 @@ function checkGameOver() {
 }
 
 function resetGame() {
+    submitScore("snake", score);
     alert("Game Over! Your score: " + score);
     clearInterval(gameLoopInterval);
     snake = [{ x: 10, y: 10 }];

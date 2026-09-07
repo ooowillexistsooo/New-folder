@@ -5,21 +5,77 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
-    padding-top: 50px;
+    padding: 24px 0;
 }
 
 .leaderboard-container {
-    width: 400px;
+    width: min(680px, calc(100% - 32px));
     background: #42427b;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+h1 { margin-bottom: 0; }
+
+.subtitle, #score-help, #score-unit, #form-status, small { color: #c7c7e8; }
+
+.auth-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 16px 0;
+    color: #c7c7e8;
+}
+
+#auth-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+#auth-controls input, #auth-controls button, #sign-out-button { padding: 8px; }
+
+#auth-controls input { min-width: 110px; }
+
+#sign-out-button {
+    border: 0;
+    color: #fff;
+}
+
+.game-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.game-tab {
+    border: 1px solid #7777aa;
+    border-radius: 999px;
+    padding: 8px 12px;
+    background: transparent;
+    color: #fff;
+    font-family: inherit;
+}
+
+.game-tab.active, .game-tab:hover { background: #6128a7; }
+
+.board-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.board-heading h2 { margin: 0 0 10px; }
+
 table {
-    width: 400px;
+    width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
@@ -35,11 +91,15 @@ th {
     color: white;
 }
 
+.empty-state { text-align: center; color: #c7c7e8; }
+
 .form-group {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
+
+label { font-size: 1.1rem; }
 
 input, button {
     padding: 10px;
@@ -52,6 +112,13 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #642188;
+button:hover { background-color: #642188; }
+button:disabled { opacity: 0.6; cursor: wait; }
+#form-status { min-height: 1.2em; margin: 0; }
+
+@media (max-width: 520px) {
+    .auth-row { align-items: flex-start; flex-direction: column; }
+    #auth-controls { justify-content: flex-start; }
+    .board-heading { align-items: flex-start; flex-direction: column; gap: 0; }
+    th, td { padding: 8px 5px; }
 }

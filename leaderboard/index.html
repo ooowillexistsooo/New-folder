@@ -11,23 +11,40 @@
     <div class="leaderboard-container">
         <a href="../index.html">back</a>
         <h1>leaderbored</h1>
+        <p class="subtitle">best runs from every game</p>
+        <div class="auth-row">
+            <span id="auth-status">not signed in</span>
+            <div id="auth-controls">
+                <input id="username-input" type="text" placeholder="username" maxlength="24" autocomplete="username">
+                <input id="email-input" type="email" placeholder="email" autocomplete="email">
+                <input id="password-input" type="password" placeholder="password" minlength="6" autocomplete="current-password">
+                <button id="sign-in-button" type="button">sign in</button>
+                <button id="sign-up-button" type="button">create account</button>
+                <p>i dont have access to your information</p>
+            </div>
+        </div>
+        <nav class="game-tabs" aria-label="Choose a game">
+            <button class="game-tab active" data-game="reaction">reaction</button>
+            <button class="game-tab" data-game="sudoku">sudoku</button>
+            <button class="game-tab" data-game="snake">snake</button>
+            <button class="game-tab" data-game="stack">stack</button>
+            <button class="game-tab" data-game="all">all games</button>
+        </nav>
+        <div class="board-heading">
+            <h2 id="game-title">reaction time</h2>
+            <span id="score-help">fastest time wins</span>
+        </div>
         <table id="leaderboard-table">
             <thead>
                 <tr>
                     <th>Rank</th>
                     <th>Name</th>
-                    <th>Score</th>
+                    <th id="score-heading">Time</th>
                 </tr>
             </thead>
-            <tbody id="leaderboard-body">
-                <!--ahem hem stuff go here-->
-            </tbody>
+            <tbody id="leaderboard-body"></tbody>
         </table>
-        <div class="form-group">
-            <input type="text" id="name-input" placeholder="name">
-            <input type="number" id="score-input" placeholder="score">
-            <button id="submit-score">submitty</button>
-        </div>
+        <p id="form-status" class="auth-note" role="status">scores are submitted automatically from the games.</p>
     </div>
     <script src="app.js" type="module"></script>
 </body>

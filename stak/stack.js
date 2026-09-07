@@ -1,3 +1,5 @@
+import { submitScore } from "../leaderboard/submit-score.js";
+
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 // holy spaghetticode omg
@@ -134,6 +136,7 @@ function handleAction() {
 
         if (absDeltaX >= target.width) {
             gameActive = false;
+            submitScore("stack", score);
             return;
         }
 
@@ -150,6 +153,7 @@ function handleAction() {
 
         if (absDeltaZ >= target.depth) {
             gameActive = false;
+            submitScore("stack", score);
             return;
         }
         
