@@ -5,8 +5,36 @@
     <meta name="description" content="iono">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>solitaire</title>
+    <link rel="stylesheet" href="solitaire.css" class="css">
 </head>
 <body>
-    
+    <a href="../index.html">back home</a>
+    <h1>solitaire</h1>
+    <div class="controls">
+        <button id="new-game" type="button">new game</button>
+        <span id="timer">time: 0s</span>
+    </div>
+
+    <main class="game-board" id="board">
+        <section class="top-row" aria-label="stock, waste, and foundations">
+            <button class="pile stock" id="stock" type="button" aria-label="Draw from stock"></button>
+            <div class="pile waste" id="waste" aria-label="Waste"></div>
+            <div class="spacer"></div>
+            <div class="foundations" id="foundations"></div>
+        </section>
+        <section class="tableau" aria-label="Tableau">
+        <div class="column" data-col="0"></div>
+        <div class="column" data-col="1"></div>
+        <div class="column" data-col="2"></div>
+        <div class="column" data-col="3"></div>
+        <div class="column" data-col="4"></div>
+        <div class="column" data-col="5"></div>
+        <div class="column" data-col="6"></div>
+        </section>
+    </main>
+    <p id="status" role="status">:)</p>
+    <p>author's note: so after "extensive" "research" (microsoft solitaire my favorite bloatware) it seems this version is called klondike :D fun fact for you</p>
+    <p>author's note note: lowk laufey is peak ive been listening to her while making this and minesweeper</p>
+    <script src="solitairey-confinement.js" type="module"></script>
 </body>
 </html>
