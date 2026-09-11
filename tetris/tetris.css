@@ -1,0 +1,28 @@
+body {
+    background: #111;
+    color: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.game-container {
+    text-align: center;
+}
+
+.score-board {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+canvas {
+    border: 4px solid #333;
+    background-color: #000;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
